@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
-  productGUID: a47130861c84dc34eb9fd1eb4ec83f64
+  productGUID: 1da7c2b9882530445a8fa4652d645476
   AndroidProfiler: 0
   defaultScreenOrientation: 4
   targetDevice: 2
@@ -590,8 +590,8 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 92dd501a-7836-4fd8-b2da-daf55beba963
-  projectName: Morning-Running
+  cloudProjectId: b56a341d-813d-48b4-913b-e5e7008f1c01
+  projectName: Morning-Running (1)
   organizationId: hyunlim
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
