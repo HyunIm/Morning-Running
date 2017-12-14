@@ -4,4 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Morning_Running.unity
+    guid: a7f209bf04c17c94ba2da4d1c0fb4080
+  - enabled: 1
+    path: Assets/Scenes/SetUp.unity
+    guid: 2902c5d515fd759449f5a8fbb1137d44
+  - enabled: 1
+    path: Assets/Scenes/Story.unity
+    guid: 5ed69ee07d9c7104599f88bf50d90a24
+  - enabled: 1
+    path: Assets/Scenes/Bicycle.unity
+    guid: 13ba73178796ba6469e76e72a51556f3
