@@ -1,9 +1,9 @@
-﻿/**
- * @file : ScrollObject.cs
- * @author : 임현 (hyunzion@gmail.com)
- * @since : 2017 - 12 - 14
- * @brief : 배경 스크롤
- */
+﻿ /**
+  * @file : ScrollObject.cs
+  * @author : 임현 (hyunzion@gmail.com)
+  * @since : 2017 - 12 - 14
+  * @brief : 배경 스크롤
+  */
 
  /* ================= 출처 =================
   * 책 제목 : 유니티 5로 만드는 3D/2D 스마트폰 게임 개발
@@ -20,8 +20,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScrollObject : MonoBehaviour {
-
+public class ScrollObject : MonoBehaviour
+{
 	public float speed;	// 이동할 속도	(static -> dynamic)
 	public float startPosition;	// 시작 지점
 	public float endPosition;	// 끝나는 지점
@@ -35,7 +35,7 @@ public class ScrollObject : MonoBehaviour {
 		if (transform.position.x <= endPosition) ScrollEnd();
 	}
 
-	void ScrollEnd()
+	private void ScrollEnd ()
 	{
 		// 스크롤할 거리 만큼을 되돌린다
 		transform.Translate(-1 * (endPosition - startPosition), 0, 0);
