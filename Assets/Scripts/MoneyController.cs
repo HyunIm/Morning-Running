@@ -48,7 +48,7 @@ public class MoneyController : MonoBehaviour
 		if (gold == 1000)
 		{
 			gold_unit++;
-			return 1;
+			return gold - 1000;
 		}
 
 		return gold;
