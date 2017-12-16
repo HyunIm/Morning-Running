@@ -12,35 +12,31 @@ using UnityEngine.UI;
 
 public class MoneyController : MonoBehaviour
 {
-	char gold_unit = 'a';
-	char credit_unit = 'a';
-	int gold = 1;
-	int credit = 1;
+	public char gold_unit = 'a';
+	public char credit_unit = 'a';
+	public int gold = 1;
+	public int credit = 1;
 
 	public Text goldLabel;
 	public Text creditLabel;
 
-	public void Update()
+	private void Update()
 	{
-		int g = CalcGold(gold);	// 골드
-		int c = CalcCredit(credit); // 학점
-
-		goldLabel.text = " " + g + gold_unit;
-		goldLabel.text = " " + c + credit_unit;
+		SendMessage("CalcGold");
+		SendMessage("CalcCredit");
 	}
 
-	int CalcGold (int gold)
+	public void CalcGold (int gold)
 	{
+		gold++;
+
 		GoldRoundDown(gold);
-
-		gold += gold;
-
-		return gold;
+		goldLabel.text = " " + gold + gold_unit;
 	}
 
-	int CalcCredit (int credit)
+	public void CalcCredit (int credit)
 	{
-		return credit;
+		creditLabel.text = " " + credit + credit_unit;
 	}
 
 	int GoldRoundDown (int gold)
