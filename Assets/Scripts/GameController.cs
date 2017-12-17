@@ -24,14 +24,14 @@ public class GameController : MonoBehaviour
 	/// </summary>
 	int bag_level = 1;
 	int shoes_level = 1;
-	int bag1_price = 10;
-	int bag2_price = 20;
-	int bag3_price = 30;
-	int bag4_price = 40;
-	int shoes1_price = 10;
-	int shoes2_price = 20;
-	int shoes3_price = 30;
-	int shoes4_price = 40;
+	int bag1_price = 400;
+	int bag2_price = 7000;
+	int bag3_price = 32000;
+	int bag4_price = 130000;
+	int shoes1_price = 100;
+	int shoes2_price = 3000;
+	int shoes3_price = 15000;
+	int shoes4_price = 90000;
 	public GameObject PreBag1;
 	public GameObject PreBag2;
 	public GameObject PreBag3;
@@ -83,13 +83,13 @@ public class GameController : MonoBehaviour
 
 	private void Update()
 	{
-		time++;
+		time += shoes_level;
 		cooldown_time--;
 
-		if (time == 10)
+		if (time >= 100)
 		{
-			gold += major;
-			time = 0;
+			gold += 1 + ((major - 1) * 5) + ((shoes_level - 1) * 30);
+			time = 1;
 		}
 		goldLabel.text = "" + gold;
 		creditLabel.text = " " + credit;
@@ -104,7 +104,7 @@ public class GameController : MonoBehaviour
 	{
 		print("ComeBack");
 
-		credit += (gold / (100 - (grade * 10)));
+		credit += (gold / (100 - (grade + (bag_level * 5))));
 		gold = 1;
 
 		bag_level = 1;
@@ -137,7 +137,7 @@ public class GameController : MonoBehaviour
 	{
 		if (bag_level == 1)
 		{
-			if (gold > bag1_price)
+			if (gold >= bag1_price)
 			{
 				gold -= bag1_price;
 				bag_level++;
@@ -150,7 +150,7 @@ public class GameController : MonoBehaviour
 
 		if (bag_level == 2)
 		{
-			if (gold > bag2_price)
+			if (gold >= bag2_price)
 			{
 				gold -= bag2_price;
 				bag_level++;
@@ -163,7 +163,7 @@ public class GameController : MonoBehaviour
 
 		if (bag_level == 3)
 		{
-			if (gold > bag3_price)
+			if (gold >= bag3_price)
 			{
 				gold -= bag3_price;
 				bag_level++;
@@ -176,7 +176,7 @@ public class GameController : MonoBehaviour
 
 		if (bag_level == 4)
 		{
-			if (gold > bag4_price)
+			if (gold >= bag4_price)
 			{
 				gold -= bag4_price;
 				bag_level++;
@@ -191,7 +191,7 @@ public class GameController : MonoBehaviour
 	{
 		if (shoes_level == 1)
 		{
-			if (gold > shoes1_price)
+			if (gold >= shoes1_price)
 			{
 				gold -= shoes1_price;
 				shoes_level++;
@@ -204,7 +204,7 @@ public class GameController : MonoBehaviour
 
 		if (shoes_level == 2)
 		{
-			if (gold > shoes2_price)
+			if (gold >= shoes2_price)
 			{
 				gold -= shoes2_price;
 				shoes_level++;
@@ -217,7 +217,7 @@ public class GameController : MonoBehaviour
 
 		if (shoes_level == 3)
 		{
-			if (gold > shoes3_price)
+			if (gold >= shoes3_price)
 			{
 				gold -= shoes3_price;
 				shoes_level++;
@@ -230,7 +230,7 @@ public class GameController : MonoBehaviour
 
 		if (shoes_level == 4)
 		{
-			if (gold > shoes4_price)
+			if (gold >= shoes4_price)
 			{
 				gold -= shoes4_price;
 				shoes_level++;
@@ -245,7 +245,7 @@ public class GameController : MonoBehaviour
 	public void ReName()
 	{
 		print("ReName");
-		if (credit > name_credit)
+		if (credit >= name_credit)
 		{
 			credit -= name_credit;
 			rname++;
@@ -255,7 +255,7 @@ public class GameController : MonoBehaviour
 	public void ReMajor()
 	{
 		print("ReMajor");
-		if (credit > major_credit)
+		if (credit >= major_credit)
 		{
 			credit -= major_credit;
 			major++;
@@ -265,7 +265,7 @@ public class GameController : MonoBehaviour
 	public void ReGrade()
 	{
 		print("ReGrade");
-		if (credit > grade_credit)
+		if (credit >= grade_credit)
 		{
 			credit -= grade_credit;
 			grade++;
@@ -277,7 +277,7 @@ public class GameController : MonoBehaviour
 	{
 		if (cooldown_time <= 0)
 		{
-			gold += 100;
+			gold += 100 + (major * 10);
 			cooldown_time = 99 - (rname * 10);
 		}
 	}
@@ -286,7 +286,7 @@ public class GameController : MonoBehaviour
 	{
 		if (cooldown_time <= 0)
 		{
-			credit += 10;
+			credit += 10 + (grade * 5);
 			cooldown_time = 999 - (rname * 10);
 		}
 	}
