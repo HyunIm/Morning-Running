@@ -114,9 +114,9 @@ public class GameController : MonoBehaviour
 			{
 				gold -= bag1_price;
 				bag_level++;
-				PreBag1.transform.localPosition = new Vector3(-7, 0, 0);
+				PreBag1.transform.localPosition = new Vector3(-20, 0, 0);
 				PreBag2.transform.localPosition = new Vector3(0, 0, 0);
-				PostBag2.transform.localPosition = new Vector3(-7, 0, 0);
+				PostBag2.transform.localPosition = new Vector3(-20, 0, 0);
 				PostBag3.transform.localPosition = new Vector3(0, 0, 0);
 			}
 		}
@@ -127,9 +127,9 @@ public class GameController : MonoBehaviour
 			{
 				gold -= bag2_price;
 				bag_level++;
-				PreBag2.transform.localPosition = new Vector3(-7, 0, 0);
+				PreBag2.transform.localPosition = new Vector3(-20, 0, 0);
 				PreBag3.transform.localPosition = new Vector3(0, 0, 0);
-				PostBag3.transform.localPosition = new Vector3(-7, 0, 0);
+				PostBag3.transform.localPosition = new Vector3(-20, 0, 0);
 				PostBag4.transform.localPosition = new Vector3(0, 0, 0);
 			}
 		}
@@ -140,22 +140,22 @@ public class GameController : MonoBehaviour
 			{
 				gold -= bag3_price;
 				bag_level++;
-				PreBag3.transform.localPosition = new Vector3(-7, 0, 0);
+				PreBag3.transform.localPosition = new Vector3(-20, 0, 0);
 				PreBag4.transform.localPosition = new Vector3(0, 0, 0);
-				PostBag4.transform.localPosition = new Vector3(-7, 0, 0);
+				PostBag4.transform.localPosition = new Vector3(-20, 0, 0);
 				PostBag5.transform.localPosition = new Vector3(0, 0, 0);
 			}
 		}
 
 		if (bag_level == 4)
 		{
-			if (gold > bag1_price)
+			if (gold > bag4_price)
 			{
-				gold -= bag1_price;
+				gold -= bag4_price;
 				bag_level++;
-				PreBag4.transform.localPosition = new Vector3(-7, 0, 0);
+				PreBag4.transform.localPosition = new Vector3(-20, 0, 0);
 				PreBag5.transform.localPosition = new Vector3(0, 0, 0);
-				PostBag5.transform.localPosition = new Vector3(-7, 0, 0);
+				PostBag5.transform.localPosition = new Vector3(-20, 0, 0);
 			}
 		}
 	}
