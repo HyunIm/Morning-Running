@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
 	/// 장비
 	/// </summary>
 	int bag_level = 1;
-	int shoes_leve = 1;
+	int shoes_level = 1;
 	int bag1_price = 10;
 	int bag2_price = 20;
 	int bag3_price = 30;
@@ -103,6 +103,30 @@ public class GameController : MonoBehaviour
 
 		credit += (gold / (100 - (grade * 10)));
 		gold = 1;
+
+		bag_level = 1;
+		PreBag1.transform.localPosition = new Vector3(0, 0, 0);
+		PreBag2.transform.localPosition = new Vector3(-20, 0, 0);
+		PreBag3.transform.localPosition = new Vector3(-20, 0, 0);
+		PreBag4.transform.localPosition = new Vector3(-20, 0, 0);
+		PreBag5.transform.localPosition = new Vector3(-20, 0, 0);
+		PostBag1.transform.localPosition = new Vector3(-20, 0, 0);
+		PostBag2.transform.localPosition = new Vector3(0, 0, 0);
+		PostBag3.transform.localPosition = new Vector3(-20, 0, 0);
+		PostBag4.transform.localPosition = new Vector3(-20, 0, 0);
+		PostBag5.transform.localPosition = new Vector3(-20, 0, 0);
+
+		shoes_level = 1;
+		PreShoes1.transform.localPosition = new Vector3(0, 0, 0);
+		PreShoes2.transform.localPosition = new Vector3(-20, 0, 0);
+		PreShoes3.transform.localPosition = new Vector3(-20, 0, 0);
+		PreShoes4.transform.localPosition = new Vector3(-20, 0, 0);
+		PreShoes5.transform.localPosition = new Vector3(-20, 0, 0);
+		PostShoes1.transform.localPosition = new Vector3(-20, 0, 0);
+		PostShoes2.transform.localPosition = new Vector3(0, 0, 0);
+		PostShoes3.transform.localPosition = new Vector3(-20, 0, 0);
+		PostShoes4.transform.localPosition = new Vector3(-20, 0, 0);
+		PostShoes5.transform.localPosition = new Vector3(-20, 0, 0);
 	}
 
 
