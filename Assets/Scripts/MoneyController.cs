@@ -12,15 +12,28 @@ using UnityEngine.UI;
 
 public class MoneyController : MonoBehaviour
 {
+	/// <summary>
+	/// 화폐
+	/// </summary>
 	public char gold_unit = 'a';
 	public int credit_unit = 0;
 	public int gold = 1;
 	public int credit = 1;
 	public int time = 0;
-	int major = 1;
 
+	/// <summary>
+	/// 특성
+	/// </summary>
+	public int major = 1;
+	public int grade = 1;
+	public int name = 1;
+
+	/// <summary>
+	/// UI
+	/// </summary>
 	public Text goldLabel;
 	public Text creditLabel;
+
 
 	private void Start()
 	{
@@ -68,7 +81,7 @@ public class MoneyController : MonoBehaviour
 		// char 'a'(97) 에서 빼줌
 		credit_unit = gold_unit - 97;
 
-		this.credit += ((gold + (credit_unit * 1000)) / 1000);
+		this.credit += ((gold + (credit_unit * 1000)) / (1000 - (grade * 10)));
 
 		gold = 0;
 		gold_unit = 'a';
