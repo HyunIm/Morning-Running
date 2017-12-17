@@ -15,23 +15,55 @@ public class GameController : MonoBehaviour
 	/// <summary>
 	/// 화폐
 	/// </summary>
-	char gold_unit = 'a';
-	int credit_unit = 0;
 	int gold = 1;
 	int credit = 1;
 	int time = 0;
+
+	/// <summary>
+	/// 장비
+	/// </summary>
+	int bag_level = 1;
+	int shoes_leve = 1;
+	int bag1_price = 10;
+	int bag2_price = 20;
+	int bag3_price = 30;
+	int bag4_price = 40;
+	int bag5_price = 50;
+	public GameObject PreBag1;
+	public GameObject PreBag2;
+	public GameObject PreBag3;
+	public GameObject PreBag4;
+	public GameObject PreBag5;
+	public GameObject PostBag1;
+	public GameObject PostBag2;
+	public GameObject PostBag3;
+	public GameObject PostBag4;
+	public GameObject PostBag5;
+	public GameObject PreShoes1;
+	public GameObject PreShoes2;
+	public GameObject PreShoes3;
+	public GameObject PreShoes4;
+	public GameObject PreShoes5;
+	public GameObject PostShoes1;
+	public GameObject PostShoes2;
+	public GameObject PostShoes3;
+	public GameObject PostShoes4;
+	public GameObject PostShoes5;
 
 	/// <summary>
 	/// 특성
 	/// </summary>
 	int major = 1;	// 전과하기
 	int grade = 1;	// 학년증가
-	int name = 1;	// 개명하기
+	int rname = 1;   // 개명하기
+	int name_credit = 1000;
+	int major_credit = 10;
+	int grade_credit = 100;
 
 	/// <summary>
 	/// 스킬
 	/// </summary>
-	int cooldown_time = 999;	// 스킬 쿨타임
+	int cooldown_time = 0;	// 스킬 쿨타임
 
 	/// <summary>
 	/// UI
@@ -42,8 +74,8 @@ public class GameController : MonoBehaviour
 
 	private void Start()
 	{
-		goldLabel.text = "" + gold + gold_unit;
-		creditLabel.text = " " + credit + credit_unit;
+		goldLabel.text = "" + gold;
+		creditLabel.text = " " + credit;
 	}
 
 	private void Update()
@@ -56,28 +88,10 @@ public class GameController : MonoBehaviour
 			gold += major;
 			time = 0;
 		}
-		GoldRoundDown(gold);
-		goldLabel.text = "" + gold + gold_unit;
+		goldLabel.text = "" + gold;
 		creditLabel.text = " " + credit;
 	}
 
-	/// <summary>
-	/// @title : int GoldRoundDown (int gold)
-	/// @param : int gold (골드 값)
-	/// @return : 1000이 넘을 시 1을 반환, 아닐 시 패스
-	/// @brief : 화폐 단위를 잘라주는 함수 (a부터 z까지)
-	/// </summary>
-	int GoldRoundDown(int gold)
-	{
-		if (gold >= 1000)
-		{
-			gold_unit++;
-			this.gold = 1;
-			return 1;
-		}
-
-		return gold;
-	}
 
 	/// <summary>
 	/// @title : public void ComeBack ()
@@ -86,19 +100,71 @@ public class GameController : MonoBehaviour
 	public void ComeBack()
 	{
 		print("ComeBack");
-		// char 'a'(97) 에서 빼줌
-		credit_unit = gold_unit - 97;
 
-		this.credit += ((gold + (credit_unit * 1000)) / (1000 - (grade * 10)));
-
-		gold = 0;
-		gold_unit = 'a';
+		credit += (gold / (100 - (grade * 10)));
+		gold = 1;
 	}
 
 
-	int name_credit = 1000;
-	int major_credit = 10;
-	int grade_credit = 100;
+	public void Bag()
+	{
+		if (bag_level == 1)
+		{
+			if (gold > bag1_price)
+			{
+				gold -= bag1_price;
+				bag_level++;
+				PreBag1.transform.localPosition = new Vector3(-7, 0, 0);
+				PreBag2.transform.localPosition = new Vector3(0, 0, 0);
+				PostBag2.transform.localPosition = new Vector3(-7, 0, 0);
+				PostBag3.transform.localPosition = new Vector3(0, 0, 0);
+			}
+		}
+
+		if (bag_level == 2)
+		{
+			if (gold > bag2_price)
+			{
+				gold -= bag2_price;
+				bag_level++;
+				PreBag2.transform.localPosition = new Vector3(-7, 0, 0);
+				PreBag3.transform.localPosition = new Vector3(0, 0, 0);
+				PostBag3.transform.localPosition = new Vector3(-7, 0, 0);
+				PostBag4.transform.localPosition = new Vector3(0, 0, 0);
+			}
+		}
+
+		if (bag_level == 3)
+		{
+			if (gold > bag3_price)
+			{
+				gold -= bag3_price;
+				bag_level++;
+				PreBag3.transform.localPosition = new Vector3(-7, 0, 0);
+				PreBag4.transform.localPosition = new Vector3(0, 0, 0);
+				PostBag4.transform.localPosition = new Vector3(-7, 0, 0);
+				PostBag5.transform.localPosition = new Vector3(0, 0, 0);
+			}
+		}
+
+		if (bag_level == 4)
+		{
+			if (gold > bag1_price)
+			{
+				gold -= bag1_price;
+				bag_level++;
+				PreBag4.transform.localPosition = new Vector3(-7, 0, 0);
+				PreBag5.transform.localPosition = new Vector3(0, 0, 0);
+				PostBag5.transform.localPosition = new Vector3(-7, 0, 0);
+			}
+		}
+	}
+
+	public void Shoes()
+	{
+
+	}
+
 
 	public void ReName()
 	{
@@ -106,8 +172,7 @@ public class GameController : MonoBehaviour
 		if (credit > name_credit)
 		{
 			credit -= name_credit;
-			name_credit += 1000;
-			name++;
+			rname++;
 		}
 	}
 
@@ -117,7 +182,6 @@ public class GameController : MonoBehaviour
 		if (credit > major_credit)
 		{
 			credit -= major_credit;
-			major_credit += 10;
 			major++;
 		}
 	}
@@ -128,7 +192,6 @@ public class GameController : MonoBehaviour
 		if (credit > grade_credit)
 		{
 			credit -= grade_credit;
-			grade_credit += 10;
 			grade++;
 		}
 	}
@@ -138,8 +201,8 @@ public class GameController : MonoBehaviour
 	{
 		if (cooldown_time <= 0)
 		{
-			gold += 1000;
-			cooldown_time = 999;
+			gold += 100;
+			cooldown_time = 99 - (rname * 10);
 		}
 	}
 
@@ -147,8 +210,8 @@ public class GameController : MonoBehaviour
 	{
 		if (cooldown_time <= 0)
 		{
-			credit += 1000;
-			cooldown_time = 999;
+			credit += 10;
+			cooldown_time = 999 - (rname * 10);
 		}
 	}
 
