@@ -15,18 +15,23 @@ public class GameController : MonoBehaviour
 	/// <summary>
 	/// 화폐
 	/// </summary>
-	public char gold_unit = 'a';
-	public int credit_unit = 0;
-	public int gold = 1;
-	public int credit = 1;
-	public int time = 0;
+	char gold_unit = 'a';
+	int credit_unit = 0;
+	int gold = 1;
+	int credit = 1;
+	int time = 0;
 
 	/// <summary>
 	/// 특성
 	/// </summary>
-	public int major = 1;
-	public int grade = 1;
-	public int name = 1;
+	int major = 1;	// 전과하기
+	int grade = 1;	// 학년증가
+	int name = 1;	// 개명하기
+
+	/// <summary>
+	/// 스킬
+	/// </summary>
+	int cooldown_time = 999;	// 스킬 쿨타임
 
 	/// <summary>
 	/// UI
@@ -44,7 +49,9 @@ public class GameController : MonoBehaviour
 	private void Update()
 	{
 		time++;
-		if (time == 1)
+		cooldown_time--;
+
+		if (time == 10)
 		{
 			gold += major;
 			time = 0;
@@ -129,12 +136,20 @@ public class GameController : MonoBehaviour
 
 	public void Water()
 	{
-		gold += 1000;
+		if (cooldown_time <= 0)
+		{
+			gold += 1000;
+			cooldown_time = 999;
+		}
 	}
 
 	public void Breath()
 	{
-		credit += 10;
+		if (cooldown_time <= 0)
+		{
+			credit += 1000;
+			cooldown_time = 999;
+		}
 	}
 
 
