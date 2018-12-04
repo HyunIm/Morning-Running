@@ -1,5 +1,4 @@
-﻿#Morning-Running
-### Idle-Game
+﻿# Morning-Running
 
 프로젝트 개요
 ========
