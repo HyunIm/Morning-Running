@@ -29,3 +29,15 @@
 실행 화면
 ========
 ![Game_Screen](https://github.com/HyunIm/Morning-Running/blob/master/Documents/Game_Screen.png)
+
+Scenes
+========
+![Game_Scenes](https://github.com/HyunIm/Morning-Running/blob/master/Documents/Game_Scenes.png)
+
+Sprites
+========
+![Game_Sprites](https://github.com/HyunIm/Morning-Running/blob/master/Documents/Game_Sprites.png)
+
+Scripts
+========
+![Game_Scripts](https://github.com/HyunIm/Morning-Running/blob/master/Documents/Game_Scripts.png)
